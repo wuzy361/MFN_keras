@@ -153,8 +153,8 @@ h = Lambda(lambda x: x[:,:,emb:])(ch)#公式 6
 c_s_2 = concatenate([c_s,c_s])
 c_s_3 = concatenate([c_s_2,c_s])
 
-t = Lambda(lambda x: x[:, ::2])(c_s_3)
-t_1 = Lambda(lambda x: x[:, 1::2])(c_s_3)
+t = Lambda(lambda x: x[:, :(maxlen-1)])(c_s_3)
+t_1 = Lambda(lambda x: x[:, 1:])(c_s_3)
 c = concatenate([t, t_1])
 
 
